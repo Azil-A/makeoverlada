@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Creamy backgrounds */
+    --background: 345 100% 98.8%;
+    --foreground: 330 35% 25%;
+
+    /* Soft card backgrounds */
+    --card: 340 100% 99.4%;
+    --card-foreground: 330 35% 25%;
+
+    --popover: 340 100% 99.4%;
+    --popover-foreground: 330 35% 25%;
+
+    /* Blush pink primary */
+    --primary: 350 100% 85%;
+    --primary-foreground: 330 35% 25%;
+
+    /* Rose gold secondary */
+    --secondary: 350 30% 70%;
+    --secondary-foreground: 330 50% 15%;
+
+    /* Lavender muted */
+    --muted: 260 30% 95%;
+    --muted-foreground: 330 15% 50%;
+
+    /* Peachy coral accent */
+    --accent: 10 100% 78%;
+    --accent-foreground: 330 50% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 350 100% 92%;
+    --input: 350 100% 94%;
+    --ring: 350 100% 85%;
+
+    --radius: 1rem;
+
+    /* Custom beauty brand tokens */
+    --champagne-gold: 45 65% 60%;
+    --deep-mauve: 330 35% 45%;
+    --rose-gold: 350 30% 70%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(350 100% 85%) 0%, hsl(10 100% 78%) 100%);
+    --gradient-premium: linear-gradient(135deg, hsl(45 65% 60%) 0%, hsl(45 50% 85%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(345 100% 98%) 0%, hsl(340 100% 96%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(350 100% 85% / 0.3);
+    --shadow-float: 0 10px 30px -5px hsl(350 100% 75% / 0.4);
+    --shadow-glow: 0 0 25px hsl(350 100% 85% / 0.5);
+
+    /* Sidebar (keeping for compatibility) */
+    --sidebar-background: 345 100% 98%;
+    --sidebar-foreground: 330 35% 25%;
+    --sidebar-primary: 350 100% 85%;
+    --sidebar-primary-foreground: 330 35% 25%;
+    --sidebar-accent: 260 30% 95%;
+    --sidebar-accent-foreground: 330 35% 25%;
+    --sidebar-border: 350 100% 92%;
+    --sidebar-ring: 350 100% 85%;
+  }
+
+  .dark {
+    --background: 330 35% 10%;
+    --foreground: 340 100% 98%;
+
+    --card: 330 30% 12%;
+    --card-foreground: 340 100% 98%;
+
+    --popover: 330 30% 12%;
+    --popover-foreground: 340 100% 98%;
+
+    --primary: 350 100% 75%;
+    --primary-foreground: 330 35% 10%;
+
+    --secondary: 350 25% 25%;
+    --secondary-foreground: 340 100% 98%;
+
+    --muted: 330 20% 20%;
+    --muted-foreground: 340 30% 70%;
+
+    --accent: 10 80% 65%;
+    --accent-foreground: 330 35% 10%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 340 100% 98%;
+
+    --border: 330 25% 20%;
+    --input: 330 25% 20%;
+    --ring: 350 100% 75%;
+
+    --champagne-gold: 45 50% 55%;
+    --deep-mauve: 330 35% 55%;
+    --rose-gold: 350 30% 60%;
+    
+    --sidebar-background: 330 35% 10%;
+    --sidebar-foreground: 340 100% 98%;
+    --sidebar-primary: 350 100% 75%;
+    --sidebar-primary-foreground: 330 35% 10%;
+    --sidebar-accent: 330 20% 20%;
+    --sidebar-accent-foreground: 340 100% 98%;
+    --sidebar-border: 330 25% 20%;
+    --sidebar-ring: 350 100% 75%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'kern' 1;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-premium {
+    background: var(--gradient-premium);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-float {
+    box-shadow: var(--shadow-float);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
